@@ -1,9 +1,26 @@
-from flask import Flask
+import pickle
+from flask import Flask, render_template
+
+top_50 = pickle.load(open('top_50.pkl', 'rb'))  # I have loaded DataFrame
+
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return "hellow World!"
 
-if __name__ =="__main__":
+@app.route('/')  # for pointing homepage
+def index():
+    # now here I will send each columns of DF as a list to the index.html
+    return render_template('index.html',
+                    # .values for getting np array, into list
+                    book_name=list(top_50['Book-Title'].values),
+                    author_name=list(top_50['Book-Author'].values),
+                    image=list(top_50['Image-URL-M'].values),
+                    votes=list(top_50['no-of-rating'].values),
+                    rates=list(top_50['avg-of-rating'].values)
+    )
+
+@app.route('/recommend')
+def recommend_ui():
+    return render_template('recommend.html')
+
+if __name__ == "__main__":
     app.run(debug=True)

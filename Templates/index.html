@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Book Recommender</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+        <link rel="stylesheet" href="">
+    </head>
+    <body style="background-color:rgb(168, 166, 166) ;">
+        <nav class="navbar", style="background-color: rgb(0, 0, 0);">
+            <h1 class="navbar-brand; text-white" >Top 50 Books</h1>
+            <ul class="nav navbar-nav">
+                <li><a href="/">home</a></li>
+                <li><a href="/recommend">Recommend</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- books container -->
+        <div class="container">  
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Top 50 Books to see</h1>
+                </div>
+                <!-- let's apply loop for Books -->
+                {% for i in range(book_name | length) %}
+                    <!-- book in each row -->
+                <div class="col-md-3", style="margin-top:50px;">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="{{ image[i] }}" alt="" class="card-image-top", style="margin: top 90px;">
+                            <h5>Book name is {{ book_name[i] }}</h5>
+                            <h5>Author name is {{ author_name[i] }}</h5>
+                            <h5>Total Votes = {{votes[i]}}</h5>
+                            <h5>Rates {{rates[i]}}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                
+        <!-- Almost 8 books will be represented -->
+        <script src="" async defer></script>
+    </body>
+</html>
