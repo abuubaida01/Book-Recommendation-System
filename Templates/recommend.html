@@ -24,24 +24,28 @@
                 <div class="col-md-12">
                     <h1>Recommendation</h1>
                     <!-- will make form for getting input from user -->
-                    <form action="">
-                        <input type="text", class="form-control"><br>
+                    <form action="/recommend_books", method="post">
+                        <input name="user_input" type="text", class="form-control"><br>
                         <input type="submit", class="btn btn-lg btn-warning">
                     </form>
                 </div>
                 
-                <div class="col-md-3", style="margin-top:50px;">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="http://images.amazon.com/images/P/0439136350.01.MZZZZZZZ.jpg" alt="" class="card-image-top", style="margin: top 90px;">
-                            <h5>Book name is </h5>
-                            <h5>Author name is </h5>
-                            <h5>Total Votes </h5>
-                            <h5>Rates </h5>
+                {% if data %}
+                    {% for i in data %}
+                        <div class="col-md-3", style="margin-top:50px;">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="{{ i[2] }}" alt="" class="card-image-top", style="margin: top 90px;">
+                                    <h5>Book name = {{ i[0] }} </h5>
+                                    <h5>Author name = {{ i[1] }} </h5>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
+                    {% endfor %}
+                    
+<!-- never give space in btw { % --> 
+                {% endif %}  
+
         <!-- Almost 8 books will be represented -->
         <script src="" async defer></script>
     </body>
