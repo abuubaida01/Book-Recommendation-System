@@ -1,5 +1,10 @@
 # Book-Recommendation-System
-This is an collaborative recommendation system 
+---
+
+### Summary:
+- This is the Collaborative Recommendation System. Here I also implemented Popularity base Recommedation System.
+- You can see that the first page is showing Popular books in my data set. 
+- On the next page, you will be shown top 8 book similar to your chosen book.
 
 
 Here is the video of my Recommendation System.
